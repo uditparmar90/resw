@@ -1,10 +1,9 @@
 <?php
 include_once "connection.php";
-session_start();
 
+session_start();
 // Check if there are any session variables set
 if (!empty($_SESSION)) {
-  // echo "session.length()";
   // Loop through each session variable and echo its key-value pair
   foreach ($_SESSION as $key => $value) {
     echo $key . ': ' . $value . '<br>';
@@ -14,6 +13,43 @@ if (!empty($_SESSION)) {
   echo 'No session variables set.';
 }
 
+// require_once('route.php');
+
+function home()
+{
+  echo 'home';
+  // header("Location:index.php");
+}
+
+function about_us()
+{
+  header("Location: about.php");
+}
+
+function contact_us()
+{
+  header("Location: contact.html");
+}
+
+function page404()
+{
+  header("Location: 404.php");
+}
+
+//If url is http://localhost/route/home or user is at the maion page(http://localhost/route/)
+if ($request == 'home' or $request == '')
+  home();
+//If url is http://localhost/route/about-us
+else if ($request == 'about-us')
+  about_us();
+//If url is http://localhost/route/contact-us
+else if ($request == 'contact-us')
+  contact_us();
+//If user entered something else
+else
+  page404();
+
+//print database
 $query = "select * from properties";
 $result = mysqli_query($con, $query);
 
@@ -83,14 +119,19 @@ if (!$result) {
 
 
         <!-- Nav Starts -->
-        <div class="navbar-collapse  collapse">
+        <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.php">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <form action="logout.php" method="post"></form><button>Logout</button></form>
+            <li>
+              <form action="logout.php" method="post">
+                <button type="submit">Logout</button>
+              </form>
+            </li>
           </ul>
         </div>
+
 
         <!-- #Nav Ends -->
 

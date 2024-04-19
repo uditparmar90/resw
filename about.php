@@ -1,23 +1,35 @@
 <?php
 include_once "connection.php";
+session_start();
+if (!empty($_SESSION)) {
+  // echo "session.length()";
+  // Loop through each session variable and echo its key-value pair
+  foreach ($_SESSION as $key => $value) {
+    echo $key . ': ' . $value . '<br>';
+  }
+} else {
+  // If no session variables are set
+  echo 'No session variables set.';
 
-$query = "select * from properties where delivery_type = 'Rent'";
-$result = mysqli_query($con, $query);
-
+  $query = "select * from properties";
+  $result = mysqli_query($con, $query);
+}
 if (!$result) {
   echo "Error Found!!!";
 }
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/buysalerent.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:45:10 GMT -->
+<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/about.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:43:16 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
-  <title>Rent - Real Estate Management System</title>
+  <title>About us - Real Estate Management System</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -27,14 +39,11 @@ if (!$result) {
   <script src="assets/bootstrap/js/bootstrap.js"></script>
   <script src="assets/script.js"></script>
 
-
-
   <!-- Owl stylesheet -->
   <link rel="stylesheet" href="assets/owl-carousel/owl.carousel.css">
   <link rel="stylesheet" href="assets/owl-carousel/owl.theme.css">
   <script src="assets/owl-carousel/owl.carousel.js"></script>
   <!-- Owl stylesheet -->
-
 
   <!-- slitslider -->
   <link rel="stylesheet" type="text/css" href="assets/slitslider/css/style.css" />
@@ -48,8 +57,6 @@ if (!$result) {
 </head>
 
 <body>
-
-
   <!-- Header Starts -->
   <div class="navbar-wrapper">
 
@@ -72,8 +79,9 @@ if (!$result) {
         <div class="navbar-collapse  collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.php">About</a></li>
             <li><a href="contact.html">Contact</a></li>
+
           </ul>
         </div>
         <!-- #Nav Ends -->
@@ -111,113 +119,24 @@ if (!$result) {
   </div><!-- banner -->
   <div class="inside-banner">
     <div class="container">
-      <h2>Listing All Properties on Rent</h2>
+      <h2>About Us</h2>
     </div>
   </div>
-
   <!-- banner -->
 
 
   <div class="container">
-    <div class="properties-listing spacer">
-
+    <div class="spacer">
       <div class="row">
-        <div class="col-lg-3 col-sm-4 ">
-
-          <div class="search-form">
-            <h4><span class="glyphicon glyphicon-search"></span> Search for</h4>
-            <form action="search.php" method="post" name="search">
-              <input type="text" class="form-control" name="search" placeholder="Search of Properties">
-              <div class="row">
-                <div class="col-lg-5">
-                  <select name="delivery_type" class="form-control">
-                    <option value="Rent">Rent</option>
-                    <option value="Sale">Sale</option>
-                  </select>
-                </div>
-                <div class="col-lg-7">
-                  <select name="search_price" class="form-control">
-                    <option>Price</option>
-                    <option value="1">$5000 - $50,000</option>
-                    <option value="2">$50,000 - $100,000</option>
-                    <option value="3">$100,000 - $200,000</option>
-                    <option value="4">$200,000 - above</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-lg-12">
-                  <select name="property_type" class="form-control">
-                    <option>Property Type</option>
-                    <option value="Apartment">Apartment</option>
-                    <option value="Building">Building</option>
-                    <option value="Office-Space">Office-Space</option>
-                  </select>
-                </div>
-              </div>
-              <button name="submit" class="btn btn-primary">Find Now</button>
-            </form>
-          </div>
-
-
-
-
-
-
+        <div class="col-lg-8  col-lg-offset-2">
+          <img src="images/about.jpg" class="img-responsive thumbnail" alt="realestate">
+          <h3>Business Background</h3>
+          <p> A Tradition of Excellence, Integrity, Knowledge and Service for over 10 years.</p>
+          <h3>Company Profile</h3>
+          <p>At SLNP Real Estate, you are number one. Whether you are a property owner, tenant, or buyer, we value your business and will provide you with the individual attention and service you deserve. We believe in a strict Code of Ethics. We believe in integrity, commitment to excellence, a professional attitude, and personalized care.</p>
+          <p>SLNP provides a wide variety of real estate services to investors. We understand that you do not want to be in the business of real estate and property management.</p>
         </div>
 
-        <div class="col-lg-9 col-sm-8">
-          <div class="sortby clearfix">
-            <div class="pull-left result">Showing: All Listing Properties on Rent</div>
-            <div class="pull-right">
-            </div>
-
-          </div>
-          <div class="row">
-
-            <!-- properties -->
-            <?php
-            while ($property_result = mysqli_fetch_assoc($result)) {
-              $id = $property_result['property_id'];
-              $property_title = $property_result['property_title'];
-              $delivery_type = $property_result['delivery_type'];
-              $availablility = $property_result['availablility'];
-              $price = $property_result['price'];
-              $property_img = $property_result['property_img'];
-              $bed_room = $property_result['bed_room'];
-              $liv_room = $property_result['liv_room'];
-              $parking = $property_result['parking'];
-              $kitchen = $property_result['kitchen'];
-              $utility = $property_result['utility'];
-
-            ?>
-              <div class="col-lg-4 col-sm-6">
-                <div class="properties">
-                  <div class="image-holder"><img src="<?php echo $property_img; ?>" class="img-responsive" alt="properties">
-                    <?php if ($availablility == 0) { ?><div class="status sold">Available</div> <?php } else { ?>
-                      <div class="status new">Not Available</div>
-                    <?php } ?>
-                  </div>
-                  <h4><a href="property-detail.php?id=<?php echo $id; ?>"><?php echo $property_title;  ?></a></h4>
-                  <p class="price">Price: $<?php echo $price; ?></p>
-                  <p class="price">Delivery Type: <?php echo $delivery_type; ?></p>
-                  <p class="price">Utilities: <?php echo $utility; ?></p>
-                  <div class="listing-detail">
-                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room"><?php echo $bed_room; ?></span>
-                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room"><?php echo $liv_room; ?></span>
-                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><?php echo $parking; ?></span>
-                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen"><?php echo $kitchen; ?></span>
-                  </div>
-                  <a class="btn btn-primary" href="property-detail.php?id=<?php echo $id; ?>">View Details</a>
-                </div>
-              </div>
-            <?php } ?>
-            <!-- properties -->
-
-
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -316,6 +235,6 @@ if (!$result) {
 
 </body>
 
-<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/buysalerent.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:45:10 GMT -->
+<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/about.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:43:40 GMT -->
 
 </html>
