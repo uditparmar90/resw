@@ -86,37 +86,8 @@ if (!$imgresult) {
 
 
   <!-- Header Starts -->
-  <div class="navbar-wrapper">
+  <?php include_once('navbar.php') ?>
 
-    <div class="navbar-inverse" style="background-color: #0BE0FD">
-      <div class="container">
-        <div class="navbar-header">
-
-
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-        </div>
-
-
-        <!-- Nav Starts -->
-        <div class="navbar-collapse  collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <!-- #Nav Ends -->
-
-      </div>
-    </div>
-
-  </div>
   <!-- #Header Starts -->
 
 
@@ -299,62 +270,9 @@ if (!$imgresult) {
     </div>
   </div>
 
-
-
-
-  <div style="background-color: #0BE0FD">
-
-    <div class="container">
-
-
-
-      <div class="row">
-        <div class="col-lg-3 col-sm-3">
-          <h4>Information</h4>
-          <ul class="row">
-            <li class="col-lg-12 col-sm-12 col-xs-3"><a href="index.php">Home</a></li>
-            <li class="col-lg-12 col-sm-12 col-xs-3"><a href="about.php">About</a></li>
-            <li class="col-lg-12 col-sm-12 col-xs-3"><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-sm-3">
-          <h4>Newsletter</h4>
-          <p>Get notified about the latest properties in our marketplace.</p>
-          <form class="form-inline" role="form">
-            <input type="text" placeholder="Enter Your email address" class="form-control">
-            <button class="btn btn-success" type="button">Notify Me!</button>
-          </form>
-        </div>
-
-        <div class="col-lg-3 col-sm-3">
-          <h4>Follow us</h4>
-          <a href="#"><img src="images/facebook.png" alt="facebook"></a>
-          <a href="#"><img src="images/twitter.png" alt="twitter"></a>
-          <a href="#"><img src="images/linkedin.png" alt="linkedin"></a>
-          <a href="#"><img src="images/instagram.png" alt="instagram"></a>
-        </div>
-
-        <div class="col-lg-3 col-sm-3">
-          <h4>Contact us</h4>
-          <p><b>IT SOURCECODE</b><br>
-            <span class="glyphicon glyphicon-map-marker"></span>Brgy. Enclaro , Binalbagan Negros Occidental Philippines<br>
-            <span class="glyphicon glyphicon-envelope"></span>www.itsourcecode.com<br>
-            <span class="glyphicon glyphicon-earphone"></span> +639272777334
-          </p>
-        </div>
-      </div>
-      <p class="copyright">Copyright 2021. All rights reserved. </p>
-
-
-    </div>
-  </div>
-
-
-
-
+  <?php include_once("footer.php") ?>
   <!-- Modal -->
-  <div id="loginpop" class="modal fade">
+  <!-- <div id="loginpop" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="row">
@@ -386,13 +304,9 @@ if (!$imgresult) {
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- /.modal -->
 
-
-
 </body>
-
-<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/property-detail.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:45:26 GMT -->
 
 </html>

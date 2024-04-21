@@ -1,68 +1,5 @@
-<?php
-include_once "connection.php";
-
-session_start();
-// Check if there are any session variables set
-if (!empty($_SESSION)) {
-  // Loop through each session variable and echo its key-value pair
-  foreach ($_SESSION as $key => $value) {
-    echo $key . ': ' . $value . '<br>';
-  }
-} else {
-  // If no session variables are set
-  echo 'No session variables set.';
-}
-
-// require_once('route.php');
-
-function home()
-{
-  echo 'home';
-  // header("Location:index.php");
-}
-
-function about_us()
-{
-  header("Location: about.php");
-}
-
-function contact_us()
-{
-  header("Location: contact.html");
-}
-
-function page404()
-{
-  header("Location: 404.php");
-}
-
-//If url is http://localhost/route/home or user is at the maion page(http://localhost/route/)
-if ($request == 'home' or $request == '')
-  home();
-//If url is http://localhost/route/about-us
-else if ($request == 'about-us')
-  about_us();
-//If url is http://localhost/route/contact-us
-else if ($request == 'contact-us')
-  contact_us();
-//If user entered something else
-else
-  page404();
-
-//print database
-$query = "select * from properties";
-$result = mysqli_query($con, $query);
-
-if (!$result) {
-  echo "Error Found!!!";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:43:16 GMT -->
-<!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
@@ -75,8 +12,6 @@ if (!$result) {
   <script src="assets/jquery-1.9.1.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.js"></script>
   <script src="assets/script.js"></script>
-
-
 
 
   <!-- Owl stylesheet -->
@@ -98,56 +33,85 @@ if (!$result) {
 </head>
 
 <body>
+  <?php
+  include_once "connection.php";
+
+  session_start();
+  // Check if there are any session variables set
+  if (!empty($_SESSION)) {
+    $status = "";
+    // Loop through each session variable and echo its key-value pair
+    foreach ($_SESSION as $key => $value) {
+      echo $key . ': ' . $value . '<br>';
+    }
+  } else {
+    // If no session variables are set
+    $status = "New user";
+    // echo $status;
+  }
+
+  // require_once('route.php');
+
+  function home()
+  {
+    // echo 'home';
+    // header("Location:index.php");
+  }
+
+  function about_us()
+  {
+    header("Location: about.php");
+  }
+
+  function contact_us()
+  {
+    header("Location: contact.html");
+  }
+
+  function page404()
+  {
+    header("Location: 404.php");
+  }
+
+  //If url is http://localhost/route/home or user is at the maion page(http://localhost/route/)
+  if ($request == 'home' or $request == '')
+    home();
+  //If url is http://localhost/route/about-us
+  else if ($request == 'about-us')
+    about_us();
+  //If url is http://localhost/route/contact-us
+  else if ($request == 'contact-us')
+    contact_us();
+  //If user entered something else
+  else
+    page404();
+
+  //print database
+  $query = "select * from properties";
+  $result = mysqli_query($con, $query);
+
+  if (!$result) {
+    echo "Error Found!!!";
+  }
+  ?>
+
+  <?php
+  if ($status !== "") {
+    echo "
+  <div class='alert alert-primary .alert-dismissible' role='alert' style='color:gray;'>
+  {$status} !!! <a  class='alert-link' data-toggle='modal' data-target='#loginpop'>Let's Login</a>.
+</div>";
+  }
+  ?>
 
 
   <!-- Header Starts -->
-  <div class="navbar-wrapper">
-
-    <div class="navbar-inverse" style="background-color: #0BE0FD">
-      <div class="container">
-        <div class="navbar-header">
-
-
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-        </div>
-
-
-        <!-- Nav Starts -->
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li>
-              <form action="logout.php" method="post">
-                <button type="submit">Logout</button>
-              </form>
-            </li>
-          </ul>
-        </div>
-
-
-        <!-- #Nav Ends -->
-
-      </div>
-    </div>
-
-  </div>
-
-  <!-- #Header Starts -->
+  <?php include_once('navbar.php'); ?>
 
   <div class="container">
-
     <!-- Header Starts -->
     <div class="header">
       <!-- <a href="index.php"><img src="images/header.png" alt=" SLNP Realestate"> --><!-- </a> -->
-
       <div class="menu">
         <ul class="pull-right">
           <li><a href="index.php">Home</a></li>
@@ -157,19 +121,14 @@ if (!$result) {
               <li><a href="rent.php">Properties on Rent</a></li>
             </ul>
           </li>
-
         </ul>
       </div>
     </div>
     <!-- #Header Starts -->
   </div>
   <div class="">
-
-
     <div id="slider" class="sl-slider-wrapper">
-
       <div class="sl-slider" style="background:red;">
-
         <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
           <div class="sl-slide-inner">
             <div class="bg-img bg-img-1"></div>
@@ -354,100 +313,9 @@ if (!$result) {
       </div>
     </div>
   </div>
-
-
-
-  <div style="background-color: #0BE0FD">
-
-    <div class="container">
-
-
-
-      <div class="row">
-        <div class="col-lg-3 col-sm-3">
-          <h4>Information</h4>
-          <ul class="row">
-            <li class="col-lg-12 col-sm-12 col-xs-3"><a href="index.php">Home</a></li>
-            <li class="col-lg-12 col-sm-12 col-xs-3"><a href="about.html">About</a></li>
-            <li class="col-lg-12 col-sm-12 col-xs-3"><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-sm-3">
-          <h4>Newsletter</h4>
-          <p>Get notified about the latest properties in our marketplace.</p>
-          <form class="form-inline" role="form">
-            <input type="text" placeholder="Enter Your email address" class="form-control">
-            <button class="btn btn-success" type="button">Notify Me!</button>
-          </form>
-        </div>
-
-        <div class="col-lg-3 col-sm-3">
-          <h4>Follow us</h4>
-          <a href="#"><img src="images/facebook.png" alt="facebook"></a>
-          <a href="#"><img src="images/twitter.png" alt="twitter"></a>
-          <a href="#"><img src="images/linkedin.png" alt="linkedin"></a>
-          <a href="#"><img src="images/instagram.png" alt="instagram"></a>
-        </div>
-
-        <div class="col-lg-3 col-sm-3">
-          <h4>Contact us</h4>
-          <p><b>Udit Parmar</b><br>
-            <span class="glyphicon glyphicon-map-marker"></span>Bhavnagar, Gujarat<br>
-            <!-- <span class="glyphicon glyphicon-envelope"></span>www.Developed by Abdul Rahman Al-Harbi.com<br> -->
-            <!-- <span class="glyphicon glyphicon-earphone"></span> +9677777777777777 Developed by Abdul Rahman Al-Harbi -->
-          </p>
-        </div>
-      </div>
-      <p class="copyright">Copyright 2024. All rights reserved. </p>
-
-
-    </div>
-  </div>
-
-
-
-
-  <!-- Modal -->
-  <div id="loginpop" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="row">
-          <div class="col-sm-6 login">
-            <h4>Login</h4>
-            <form class="login.php" role="post">
-              <div class="form-group">
-                <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" name="email">
-              </div>
-              <div class="form-group">
-                <label class="sr-only" for="exampleInputPassword2">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name="password">
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Remember me
-                </label>
-              </div>
-              <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
-          </div>
-          <div class="col-sm-6">
-            <h4>New User Sign Up</h4>
-            <p>Join today and get updated with all the properties deal happening around.</p>
-            <button type="submit" class="btn btn-info" onclick="window.location.href='register.html'">Join Now</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- /.modal -->
-
+  <?php include_once('footer.php'); ?>
 
 
 </body>
-
-<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:43:16 GMT -->
 
 </html>

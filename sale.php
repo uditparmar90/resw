@@ -311,11 +311,6 @@ if (!$result) {
     </div>
   </div>
   <!-- /.modal -->
-
-
-
 </body>
-
-<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/buysalerent.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:45:10 GMT -->
 
 </html>

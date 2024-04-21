@@ -48,9 +48,6 @@ if (isset($_POST['submit'])) {
   <script src="assets/jquery-1.9.1.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.js"></script>
   <script src="assets/script.js"></script>
-
-
-
   <!-- Owl stylesheet -->
   <link rel="stylesheet" href="assets/owl-carousel/owl.carousel.css">
   <link rel="stylesheet" href="assets/owl-carousel/owl.theme.css">
@@ -73,7 +70,8 @@ if (isset($_POST['submit'])) {
 
 
   <!-- Header Starts -->
-  <div class="navbar-wrapper">
+  <?php include_once("navbar.php") ?>
+  <!-- <div class="navbar-wrapper">
 
     <div class="navbar-inverse" style="background-color: #0BE0FD">
       <div class="container">
@@ -91,24 +89,20 @@ if (isset($_POST['submit'])) {
 
 
         <!-- Nav Starts -->
-        <div class="navbar-collapse  collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <!-- #Nav Ends -->
-
-      </div>
-    </div>
+  <div class="navbar-collapse  collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="index.php">Home</a></li>
+      <li><a href="about.php">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <!-- #Nav Ends -->
 
   </div>
+  </div>
+
+  <!-- </div> -->
   <!-- #Header Starts -->
-
-
-
-
 
   <div class="container">
 
@@ -247,6 +241,7 @@ if (isset($_POST['submit'])) {
 
 
 
+  <?php require_once("footer.php") ?>
   <div style="background-color: #0BE0FD">
 
     <div class="container">
@@ -295,11 +290,8 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
 
-
-
-
   <!-- Modal -->
-  <div id="loginpop" class="modal fade">
+  <!-- <div id="loginpop" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="row">
@@ -331,13 +323,8 @@ if (isset($_POST['submit'])) {
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- /.modal -->
-
-
-
 </body>
-
-<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/buysalerent.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:45:10 GMT -->
 
 </html>
