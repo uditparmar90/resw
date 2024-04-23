@@ -6,20 +6,16 @@
   <title>Real Estate Management System</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="assets/style.css" />
   <script src="assets/jquery-1.9.1.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.js"></script>
   <script src="assets/script.js"></script>
 
-
   <!-- Owl stylesheet -->
   <link rel="stylesheet" href="assets/owl-carousel/owl.carousel.css">
   <link rel="stylesheet" href="assets/owl-carousel/owl.theme.css">
   <script src="assets/owl-carousel/owl.carousel.js"></script>
-  <!-- Owl stylesheet -->
-
 
   <!-- slitslider -->
   <link rel="stylesheet" type="text/css" href="assets/slitslider/css/style.css" />
@@ -28,14 +24,15 @@
   <script type="text/javascript" src="assets/slitslider/js/jquery.ba-cond.min.js"></script>
   <script type="text/javascript" src="assets/slitslider/js/jquery.slitslider.js"></script>
   <!-- slitslider -->
-
   <script src='assets/google_analytics_auto.js'></script>
+
+  <!-- font awersome -->
+  <script src="https://kit.fontawesome.com/2e45d17cb8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <?php
   include_once "connection.php";
-
   session_start();
   // Check if there are any session variables set
   if (!empty($_SESSION)) {
@@ -99,11 +96,10 @@
   if ($status !== "") {
     echo "
   <div class='alert alert-primary .alert-dismissible' role='alert' style='color:gray;'>
-  {$status} !!! <a  class='alert-link' data-toggle='modal' data-target='#loginpop'>Let's Login</a>.
+  {$status} !!! <a  href='login.php'>Let's Login</a>.
 </div>";
   }
   ?>
-
 
   <!-- Header Starts -->
   <?php include_once('navbar.php'); ?>
@@ -136,7 +132,7 @@
             <blockquote>
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span>Ghogha circle,Bhavnagar</p>
               <!-- <p>Developed by Abdul Rahman Al-Harbi &&& Until he extends the circle of his compassion to all living things, man will not himself find peace.</p> -->
-              <cite>$ 2,00,000</cite>
+              <cite>2,00,000 Rs.</cite>
             </blockquote>
           </div>
         </div>
@@ -148,7 +144,7 @@
             <blockquote>
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span> Ghogha circle,Bhavnagar</p>
               <!-- <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p> -->
-              <cite>$ 20,000,000</cite>
+              <cite>20,000,000 Rs.</cite>
             </blockquote>
           </div>
         </div>
@@ -160,7 +156,7 @@
             <blockquote>
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span> near sarkhej hotel-Surat</p>
               <!-- <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p> -->
-              <cite>$ 20,000,000</cite>
+              <cite>20,000,000 Rs.</cite>
             </blockquote>
           </div>
         </div>
@@ -172,7 +168,7 @@
             <blockquote>
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span>abc flats, sidsar road, Bhavnagar</p>
               <!-- <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p> -->
-              <cite>$ 20,000,000</cite>
+              <cite>20,000,000 Rs.</cite>
             </blockquote>
           </div>
         </div>
@@ -184,7 +180,7 @@
             <blockquote>
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span> Hinigaran, Negros Occidental</p>
               <!-- <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p> -->
-              <cite>$ 7,000,000</cite>
+              <cite>7,000,000 Rs.</cite>
             </blockquote>
           </div>
         </div>
@@ -224,10 +220,10 @@
                 <div class="col-lg-3 col-sm-4">
                   <select name="search_price" class="form-control">
                     <option>Price</option>
-                    <option value="1">$5000 - $50,000</option>
-                    <option value="2">$50,000 - $100,000</option>
-                    <option value="3">$100,000 - $200,000</option>
-                    <option value="4">$200,000 - above</option>
+                    <option value="1">5000 - 50,000</option>
+                    <option value="2">50,000 - 100,000</option>
+                    <option value="3">100,000 - 200,000</option>
+                    <option value="4">200,000 - above</option>
                   </select>
                 </div>
                 <div class="col-lg-3 col-sm-4">
