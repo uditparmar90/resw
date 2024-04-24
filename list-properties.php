@@ -27,6 +27,7 @@ if (!$result) {
   <script src="assets/jquery-1.9.1.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.js"></script>
   <script src="assets/script.js"></script>
+  <script src="https://kit.fontawesome.com/2e45d17cb8.js" crossorigin="anonymous"></script>
 
 
 

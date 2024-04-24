@@ -15,7 +15,7 @@
           top: 0;
           z-index: 1000;
           background: whitesmoke;
-          box-shadow: 2px 2px 5px;
+          box-shadow: 0px 1px 2px;
 
       }
   </style>

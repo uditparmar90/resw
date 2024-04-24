@@ -69,7 +69,7 @@ if (!$imgresult) {
   <link rel="stylesheet" href="assets/owl-carousel/owl.theme.css">
   <script src="assets/owl-carousel/owl.carousel.js"></script>
   <!-- Owl stylesheet -->
-
+  <script src="https://kit.fontawesome.com/2e45d17cb8.js" crossorigin="anonymous"></script>
 
   <!-- slitslider -->
   <link rel="stylesheet" type="text/css" href="assets/slitslider/css/style.css" />

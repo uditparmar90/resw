@@ -17,6 +17,11 @@
     <link rel="stylesheet" href="assets/owl-carousel/owl.theme.css" />
     <script src="assets/owl-carousel/owl.carousel.js"></script>
     <!-- Owl stylesheet -->
+    <!-- FONT AVERSOME -->
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
 
     <!-- slitslider -->
     <link
@@ -45,11 +50,38 @@
 
     <script src="assets/google_analytics_auto.js"></script>
   </head>
+  <!-- Header Starts -->
+  <style>
+    a {
+      color: #83d211 !important;
+    }
+    a:hover {
+      color: black !important;
+    }
+
+    #logo {
+      height: 40px;
+      border-radius: 128px;
+    }
+
+    /* Custom CSS for sticky navbar */
+    .navbar-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: whitesmoke;
+      box-shadow: 2px 2px 5px;
+    }
+  </style>
 
   <body>
     <!-- Header Starts -->
     <div class="navbar-wrapper">
-      <div class="navbar-inverse" role="navigation">
+      <div
+        class="navbar-inverse"
+        role="navigation"
+        style="background: rgb(245, 245, 245) !important"
+      >
         <div class="container">
           <div class="navbar-header">
             <button
@@ -64,16 +96,89 @@
               <span class="icon-bar"></span>
             </button>
           </div>
-
           <!-- Nav Starts -->
-          <div class="navbar-collapse collapse">
+          <div
+            class="navbar-collapse collapse"
+            style="background: rgb(245, 245, 245) !important"
+          >
+            <ul class="nav navbar-nav navbar-left">
+              <li>
+                <!-- <img src="images/logo.png" id="logo"> -->
+                <h4 class="m-0 p-0" style="font-weight: 900; color: #83d211">
+                  <b>Real estate software</b>
+                </h4>
+              </li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="index.php">Home</a></li>
-              <li><a href="about.html">About</a></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="about.php">About</a></li>
               <li><a href="contact.html">Contact</a></li>
+              <li>
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    style="margin-top: 7px"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <a href="userDetails.php"
+                      ><i class="fa-solid fa-user"></i
+                    ></a>
+                  </button>
+                  <div
+                    class="dropdown-menu"
+                    style="padding: 10px; width: max-content"
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <form action="logout.php" method="post">
+                      <button type="submit" class="btn btn-light">
+                        Logout
+                      </button>
+                    </form>
+                    <a class="dropdown-item m-2" href="userDetail.php"
+                      >View & Update your details</a
+                    >
+                    <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    style="margin-top: 7px"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <a href="userDetails.php"
+                      ><i class="fa-solid fa-user"></i
+                    ></a>
+                  </button>
+                  <div
+                    class="dropdown-menu"
+                    style="padding: 10px; width: max-content"
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <form action="logout.php" method="post">
+                      <button type="submit" class="btn btn-light">
+                        Logout
+                      </button>
+                    </form>
+                    <a class="dropdown-item m-2" href="userDetail.php"
+                      >View & Update your details</a
+                    >
+                    <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
-          <!-- #Nav Ends -->
         </div>
       </div>
     </div>
@@ -117,7 +222,7 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="full_name"
+                placeholder="Full Name"
                 name="form_name"
               />
               <input

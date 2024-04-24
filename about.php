@@ -51,6 +51,7 @@ if (!$result) {
   <script type="text/javascript" src="assets/slitslider/js/jquery.ba-cond.min.js"></script>
   <script type="text/javascript" src="assets/slitslider/js/jquery.slitslider.js"></script>
   <!-- slitslider -->
+  <script src="https://kit.fontawesome.com/2e45d17cb8.js" crossorigin="anonymous"></script>
 
   <script src='assets/google_analytics_auto.js'></script>
 </head>

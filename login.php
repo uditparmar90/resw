@@ -68,6 +68,7 @@ if (isset($_POST['submit'])) {
     <!-- slitslider -->
 
     <script src='assets/google_analytics_auto.js'></script>
+    <script src="https://kit.fontawesome.com/2e45d17cb8.js" crossorigin="anonymous"></script>
 </head>
 <style>
     #form-container {
