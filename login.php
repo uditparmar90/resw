@@ -77,8 +77,6 @@ if (isset($_POST['submit'])) {
         padding: 40px 30px;
         margin: 20px auto;
         width: 30%;
-        border: 2px solid gray;
-        box-shadow: 0px 0px 10px 5px gray;
     }
 </style>
 
