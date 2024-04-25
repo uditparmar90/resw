@@ -33,10 +33,7 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/buysalerent.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:45:10 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
   <title>Search Result - Real Estate Management System</title>
@@ -73,22 +70,7 @@ if (isset($_POST['submit'])) {
   <?php include_once("navbar.php") ?>
   <!-- <div class="navbar-wrapper">
 
-    <div class="navbar-inverse" style="background-color: #0BE0FD">
-      <div class="container">
-        <div class="navbar-header">
-
-
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-        </div>
-
-
-        <!-- Nav Starts -->
+    <!-- Nav Starts  -->
   <div class="navbar-collapse  collapse">
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="index.php">Home</a></li>

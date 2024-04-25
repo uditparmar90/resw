@@ -1,7 +1,7 @@
 <?php
 include_once "connection.php";
 session_start();
-echo $_SESSION["user_email"];
+// echo $_SESSION["user_email"];
 $query = "select * from properties";
 $result = mysqli_query($con, $query);
 
@@ -12,10 +12,7 @@ if (!$result) {
 
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from thebootstrapthemes.com/live/thebootstrapthemes-realestate/buysalerent.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Apr 2017 02:45:10 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
   <title>All Listing Properties - Real Estate Management System</title>
@@ -60,6 +57,11 @@ if (!$result) {
       <!-- <a href="index.php"><img src="images/header.png" alt="Realestate"></a> -->
       <div class="menu">
         <ul class="pull-right">
+          <li><select id="sort-options" style="padding:7px; border:1px solid #cfcfcf;;    border-radius: 4px;">
+              <option value="low-to-high">Price : Low to High</option>
+              <option value="high-to-low">Price : High to Low</option>
+            </select>
+          </li>
           <li><a href="index.php">Home</a></li>
           <li><a href="list-properties.php">List Properties</a>
             <ul class="dropdown">
@@ -136,43 +138,44 @@ if (!$result) {
           <div class="row">
 
             <!-- properties -->
-            <?php
-            while ($property_result = mysqli_fetch_assoc($result)) {
-              $id = $property_result['property_id'];
-              $property_title = $property_result['property_title'];
-              $delivery_type = $property_result['delivery_type'];
-              $availablility = $property_result['availablility'];
-              $price = $property_result['price'];
-              $property_img = $property_result['property_img'];
-              $bed_room = $property_result['bed_room'];
-              $liv_room = $property_result['liv_room'];
-              $parking = $property_result['parking'];
-              $kitchen = $property_result['kitchen'];
-              $utility = $property_result['utility'];
+            <div class="property-listings">
+              <?php
+              while ($property_result = mysqli_fetch_assoc($result)) {
+                $id = $property_result['property_id'];
+                $property_title = $property_result['property_title'];
+                $delivery_type = $property_result['delivery_type'];
+                $availablility = $property_result['availablility'];
+                $price = $property_result['price'];
+                $property_img = $property_result['property_img'];
+                $bed_room = $property_result['bed_room'];
+                $liv_room = $property_result['liv_room'];
+                $parking = $property_result['parking'];
+                $kitchen = $property_result['kitchen'];
+                $utility = $property_result['utility'];
 
-            ?>
-              <div class="col-lg-4 col-sm-6">
-                <div class="properties">
-                  <div class="image-holder"><img src="<?php echo $property_img; ?>" class="img-responsive" alt="properties">
-                    <?php if ($availablility == 0) { ?><div class="status sold">Available</div> <?php } else { ?>
-                      <div class="status new">Not Available</div>
-                    <?php } ?>
+              ?>
+                <div class="col-lg-4 col-sm-6">
+                  <div class="properties">
+                    <div class="image-holder"><img src="<?php echo $property_img; ?>" class="img-responsive" alt="properties">
+                      <?php if ($availablility == 0) { ?><div class="status sold">Available</div> <?php } else { ?>
+                        <div class="status new">Not Available</div>
+                      <?php } ?>
+                    </div>
+                    <h4><a href="property-detail.php?id=<?php echo $id; ?>"><?php echo $property_title;  ?></a></h4>
+                    <p class="price">Price: $<?php echo $price; ?></p>
+                    <p class="delivery_type">Delivery Type: <?php echo $delivery_type; ?></p>
+                    <p class="utility">Utilities: <?php echo $utility; ?></p>
+                    <div class="listing-detail">
+                      <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room"><?php echo $bed_room; ?></span>
+                      <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room"><?php echo $liv_room; ?></span>
+                      <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><?php echo $parking; ?></span>
+                      <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen"><?php echo $kitchen; ?></span>
+                    </div>
+                    <a class="btn btn-primary" href="property-detail.php?id=<?php echo $id; ?>">View Details</a>
                   </div>
-                  <h4><a href="property-detail.php?id=<?php echo $id; ?>"><?php echo $property_title;  ?></a></h4>
-                  <p class="price">Price: $<?php echo $price; ?></p>
-                  <p class="price">Delivery Type: <?php echo $delivery_type; ?></p>
-                  <p class="price">Utilities: <?php echo $utility; ?></p>
-                  <div class="listing-detail">
-                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room"><?php echo $bed_room; ?></span>
-                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room"><?php echo $liv_room; ?></span>
-                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking"><?php echo $parking; ?></span>
-                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen"><?php echo $kitchen; ?></span>
-                  </div>
-                  <a class="btn btn-primary" href="property-detail.php?id=<?php echo $id; ?>">View Details</a>
                 </div>
-              </div>
-            <?php } ?>
-            <!-- properties -->
+              <?php } ?>
+            </div>
 
 
           </div>
@@ -192,11 +195,11 @@ if (!$result) {
             <form class="" role="form">
               <div class="form-group">
                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email">
               </div>
               <div class="form-group">
                 <label class="sr-only" for="exampleInputPassword2">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
               </div>
               <div class="checkbox">
                 <label>
@@ -216,7 +219,36 @@ if (!$result) {
       </div>
     </div>
   </div>
-  <!-- /.modal
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const propertyListings = document.querySelector('.property-listings');
+      const sortOptions = document.getElementById('sort-options');
+
+      sortOptions.addEventListener('change', function() {
+        const sortBy = this.value;
+        sortProperties(sortBy);
+      });
+
+      function sortProperties(sortBy) {
+        const propertyItems = Array.from(propertyListings.querySelectorAll(".properties"));
+        propertyItems.sort(function(a, b) {
+          const priceA = parseFloat(a.querySelector(".price").textContent.replace("$", ""));
+          const priceB = parseFloat(b.querySelector(".price").textContent.replace("$", ""));
+          if (sortBy === "low-to-high") {
+            return priceA - priceB;
+          } else if (sortBy === "high-to-low") {
+            return priceB - priceA;
+            s
+          }
+        });
+        propertyListings.innerHTML = "";
+        propertyItems.forEach(function(item) {
+          propertyListings.appendChild(item);
+        });
+      };
+    });
+  </script>
 </body>
 
 </html>

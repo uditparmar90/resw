@@ -4,6 +4,7 @@ include_once("connection.php");
 session_start();
 if (!empty($_SESSION)) {
     $status = "";
+    print_r($_SESSION);
     //  Loop through each session variable and echo its key-value pair
     foreach ($_SESSION as $key => $value) {
         echo $key . ': ' . $value . '<br>';
@@ -96,6 +97,11 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php include_once("navbar.php") ?>
+    <div class="inside-banner">
+        <div class="container">
+            <h2>Update your details here !</h2>
+        </div>
+    </div>
 
     <!-- <div class="container" id="form-container"> -->
     <?php if (isset($error)) { ?>

@@ -38,9 +38,9 @@
   if (!empty($_SESSION)) {
     $status = "";
     // Loop through each session variable and echo its key-value pair
-    foreach ($_SESSION as $key => $value) {
-      echo $key . ': ' . $value . '<br>';
-    }
+    // foreach ($_SESSION as $key => $value) {
+    //   echo $key . ': ' . $value . '<br>';
+    // }
   } else {
     // If no session variables are set
     $status = "New user";
@@ -110,6 +110,7 @@
       <!-- <a href="index.php"><img src="images/header.png" alt=" SLNP Realestate"> --><!-- </a> -->
       <div class="menu">
         <ul class="pull-right">
+
           <li><a href="index.php">Home</a></li>
           <li><a href="list-properties.php">List Properties</a>
             <ul class="dropdown">
@@ -132,7 +133,7 @@
             <blockquote>
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span>Ghogha circle,Bhavnagar</p>
               <!-- <p>Developed by Abdul Rahman Al-Harbi &&& Until he extends the circle of his compassion to all living things, man will not himself find peace.</p> -->
-              <cite>2,00,000 Rs.</cite>
+              <cite>100,00,000 Rs.</cite>
             </blockquote>
           </div>
         </div>
@@ -140,7 +141,7 @@
         <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
           <div class="sl-slide-inner">
             <div class="bg-img bg-img-2"></div>
-            <h2><a href="#"> Developed by Abdul Rahman Al-Harbi &&& 2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
+            <h2><a href="#"> Developed by AA devlopers 2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
             <blockquote>
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span> Ghogha circle,Bhavnagar</p>
               <!-- <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p> -->
@@ -244,7 +245,8 @@
       </div>
       <div class="col-lg-5 col-lg-offset-1 col-sm-6 ">
         <p>Join now and get updated with all the properties deals.</p>
-        <button class="btn btn-info" data-toggle="modal" data-target="#loginpop">Login</button>
+        <!-- <button class="btn btn-info" data-toggle="modal" data-target="#loginpop">Login</button> -->
+        <button class="btn btn-info"><a href="login.php">Login</a></button>
       </div>
     </div>
   </div>
@@ -271,7 +273,6 @@
           $parking = $property_result['parking'];
           $kitchen = $property_result['kitchen'];
           $utility = $property_result['utility'];
-
         ?>
           <div class="properties">
             <div class="image-holder"><img src="<?php echo $property_img; ?>" class="img-responsive" alt="properties">
